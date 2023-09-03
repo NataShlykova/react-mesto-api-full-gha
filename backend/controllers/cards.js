@@ -89,11 +89,11 @@ module.exports.dislikeCard = (req, res, next) => {
     { $pull: { likes: req.user._id } },
     { new: true },
   )
-  .then((user) => {
-    if (!user) {
-      throw new NotFoundError('Карточка не cуществует');
-    }
-    verification(user, res);
-  })
+    .then((user) => {
+      if (!user) {
+        throw new NotFoundError('Карточка не cуществует');
+      }
+      verification(user, res);
+    })
     .catch((err) => next(err));
 };
