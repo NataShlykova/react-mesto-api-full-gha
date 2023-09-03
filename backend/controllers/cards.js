@@ -76,7 +76,7 @@ module.exports.likeCard = (req, res, next) => {
     .then((card) => card.populate([{ path: 'owner', model: 'user' }, { path: 'likes', model: 'user' }]))
     .then((user) => {
       if (!user) {
-        throw new NotFound('Карточка не cуществует');
+        throw new NotFoundError('Карточка не cуществует');
       }
       verification(user, res);
     })
@@ -91,7 +91,7 @@ module.exports.dislikeCard = (req, res, next) => {
   )
   .then((user) => {
     if (!user) {
-      throw new NotFound('Карточка не cуществует');
+      throw new NotFoundError('Карточка не cуществует');
     }
     verification(user, res);
   })
