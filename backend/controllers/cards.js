@@ -74,7 +74,12 @@ module.exports.likeCard = (req, res, next) => {
     { new: true },
   )
     .then((card) => card.populate([{ path: 'owner', model: 'user' }, { path: 'likes', model: 'user' }]))
-    .then((user) => verification(user, res))
+    .then((user) => {
+      if (!user) {
+        throw new NotFound('Карточка не cуществует');
+      }
+      verification(user, res);
+    })
     .catch((err) => next(err));
 };
 
@@ -84,6 +89,11 @@ module.exports.dislikeCard = (req, res, next) => {
     { $pull: { likes: req.user._id } },
     { new: true },
   )
-    .then((user) => verification(user, res))
+  .then((user) => {
+    if (!user) {
+      throw new NotFound('Карточка не cуществует');
+    }
+    verification(user, res);
+  })
     .catch((err) => next(err));
 };
