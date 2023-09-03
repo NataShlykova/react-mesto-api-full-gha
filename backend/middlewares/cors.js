@@ -1,10 +1,10 @@
 const cors = [
   'http://localhost:3000',
   'http://localhost:3001',
-  // 'https://130.193.48.152',
-  // 'http://130.193.48.152',
-  // 'https://project-mesto.nomoredomains.monster',
-  // 'http://project-mesto.nomoredomains.monster',
+  'https://158.160.108.91',
+  'http://158.160.108.91',
+  'https://domainname.students.nomoredomainsicu.ru',
+  'http://domainname.students.nomoredomainsicu.ru',
 ];
 
 module.exports = (req, res, next) => {

@@ -1,4 +1,5 @@
-export const BASE_URL = 'http://localhost:3000';
+// export const BASE_URL = 'http://localhost:3000';
+export const BASE_URL = 'api.domainname.mesto.nomoredomainsicu.ru';
 
 const handleResponse = (response) => {
   if (response.ok) {

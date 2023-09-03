@@ -32,7 +32,7 @@
 
 ## Cсылка:
 
-IP 
-Frontend  https: 
-Backend  https: 
-GitHub: 
+IP 158.160.108.91 
+Frontend  https: domainname.students.nomoredomainsicu.ru
+Backend  https: api.domainname.mesto.nomoredomainsicu.ru
+GitHub: https://github.com/NataShlykova/react-mesto-api-full-gha
