@@ -1,0 +1,13 @@
+html, .page {
+  max-width: 1280px;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: 'Inter',Arial, Helvetica, sans-serif;
+  color: #fff;
+  background-color: #000000 !important;
+  margin: 0 auto;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+

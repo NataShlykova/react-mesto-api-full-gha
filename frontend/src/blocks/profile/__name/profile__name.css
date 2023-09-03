@@ -1,0 +1,6 @@
+.profile__name {
+  max-width: 336px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
