@@ -73,7 +73,7 @@ module.exports.likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
-    .then((card) => card.populate([{ path: 'owner', model: 'user' }, { path: 'likes', model: 'user' }]))
+    .populate([{ path: 'owner', model: 'user' }, { path: 'likes', model: 'user' }])
     .then((user) => {
       if (!user) {
         throw new NotFoundError('Карточка не cуществует');
