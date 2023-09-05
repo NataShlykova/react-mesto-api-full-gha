@@ -134,7 +134,7 @@ function App () {
       .addUserCard(cardData, jwt)
       .then((newCard) => {
         // console.log('newdata', newCard.data)
-        // console.log('cards', cards)
+        console.log('cards', cards)
         setCards([newCard.data, ...cards]);
       })
       .then(() => {
