@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const celebrateErrors = require('celebrate').errors;
@@ -14,13 +15,13 @@ mongoose.connect('mongodb://127.0.0.1:27017/mestodb');
 
 const app = express();
 app.use(helmet());
-app.use(limit);
 app.use(cors);
 app.use(cookieParser());
 app.use(express.json());
 app.use(logRequest);
 app.use('/', router);
 app.use(logError);
+app.use(limit);
 app.use(celebrateErrors());
 
 app.use((err, req, res, next) => {

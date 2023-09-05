@@ -78,7 +78,7 @@ module.exports.likeCard = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Карточка не cуществует');
       }
-      verification(user, res);
+      return res.send(user);
     })
     .catch((err) => next(err));
 };
@@ -93,7 +93,7 @@ module.exports.dislikeCard = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Карточка не cуществует');
       }
-      verification(user, res);
+      return res.send(user);
     })
     .catch((err) => next(err));
 };

@@ -20,7 +20,7 @@ module.exports.getUsers = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь не найден');
       }
-      res.status(200).send(user);
+      res.send(user);
     })
     .catch(next);
 };
@@ -71,7 +71,7 @@ module.exports.getUser = (req, res, next) => {
       if (!user) {
         throw new NotFoundError('Пользователь не найден');
       }
-      verification(user, res);
+      verification(user, res, next);
     })
     .catch((error) => {
       next(error);
@@ -86,7 +86,7 @@ module.exports.updateProfile = (req, res, next) => {
     { new: true, runValidators: true },
   )
 
-    .then((user) => verification(user, res))
+    .then((user) => verification(user, res, next))
     .catch((error) => {
       if (error.name === 'ValidationError') {
         next(new ValidationError('Ошибка валидации данных'));
@@ -103,7 +103,7 @@ module.exports.updateAvatar = (req, res, next) => {
     runValidators: true,
   })
 
-    .then((user) => verification(user, res))
+    .then((user) => verification(user, res, next))
     .catch((error) => {
       if (error.name === 'ValidationError') {
         next(new ValidationError('Ошибка валидации данных'));
