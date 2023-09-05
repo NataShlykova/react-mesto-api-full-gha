@@ -59,13 +59,13 @@ module.exports.deleteCard = (req, res, next) => {
     .catch(next);
 };
 
-const verification = (card, res, next) => {
-  if (card) {
-    return res.send({ data: card });
-  }
-  const error = new NotFoundError('Карточки с указанным _id не cуществует');
-  return next(error);
-};
+// const verification = (card, res, next) => {
+//   if (card) {
+//     return res.send({ data: card });
+//   }
+//   const error = new NotFoundError('Карточки с указанным _id не cуществует');
+//   return next(error);
+// };
 
 module.exports.likeCard = (req, res, next) => {
   Card.findByIdAndUpdate(
