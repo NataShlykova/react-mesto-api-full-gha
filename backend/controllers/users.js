@@ -67,7 +67,12 @@ const verification = (user, res, next) => {
 module.exports.getUser = (req, res, next) => {
   const { userId } = req.params;
   User.findById(userId)
-    .then((user) => verification(user, res))
+    .then((user) => {
+      if (!user) {
+        throw new NotFoundError('Пользователь не найден');
+      }
+      verification(user, res);
+    })
     .catch((error) => {
       next(error);
     });
